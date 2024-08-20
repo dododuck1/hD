@@ -1,0 +1,39 @@
+name: Build Project
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Java 21
+        uses: actions/setup-java@v3
+        with:
+          java-version: '21'
+
+      - name: Download and unzip meteor-client
+        run: |
+          wget https://github.com/MeteorDevelopment/meteor-client/tree/0ce909cc676a5b73961aafb8bfddf89985353dea
+          unzip meteor-client-0ce909cc676a5b73961aafb8bfddf89985353dea.zip
+
+      - name: Build project
+        run: |
+          cd meteor-client-0ce909cc676a5b73961aafb8bfddf89985353dea
+          chmod +x gradlew
+          ./gradlew build
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-artifact
+          path: meteor-client-0ce909cc676a5b73961aafb8bfddf89985353dea/build/libs/
