@@ -22,8 +22,8 @@ jobs:
 
     - name: Download and unzip meteor-client
       run: |
-        wget https://github.com/MeteorDevelopment/meteor-client/tree/0ce909cc676a5b73961aafb8bfddf89985353dea
-        unzip meteor-client-0ce909cc676a5b73961aafb8bfddf89985353dea.zip
+        wget -O meteor-client.zip "https://www.dropbox.com/scl/fi/4nzhqbc9jbkdvee386id7/meteor-client.zip?rlkey=luzwtsgjbjcimcg1npooqii42&st=8flqz"zie&dl=0
+        unzip meteor-client.zip
 
     - name: Build project
       run: |
