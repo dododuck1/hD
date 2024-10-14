@@ -28,4 +28,5 @@ jobs:
 
     - name: Run main.py with parameters
       run: |
-        python main.py 0924994536 150
+        python main.py 
+        0924994536 150
