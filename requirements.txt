@@ -1,0 +1,4 @@
+requests
+pystyle
+user_agent
+beautifulsoup4
